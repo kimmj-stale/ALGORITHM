@@ -1,0 +1,15 @@
+/*
+#include <iostream>
+using namespace std;
+int main() {
+    cout << "\\    /\\" << '\n' << " )  ( \')" << '\n' << "(  /  )" << '\n' << " \\(__)|" << '\n';
+}
+*/
+
+/*
+*/
+#include <iostream>
+using namespace std;
+int main() {
+    cout << "|\\_/|" << '\n' << "|q p|   /}" << '\n' << "( 0 )\"\"\"\\" << '\n' << "|\"^\"`    |" << '\n' << "||_/=\\\\__|" << '\n';
+}
