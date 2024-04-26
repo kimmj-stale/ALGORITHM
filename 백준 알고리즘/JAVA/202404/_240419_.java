@@ -13,8 +13,10 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         StringTokenizer st = new StringTokenizer(br.readLine() , " ");
+        
         int s1_count = Integer.parseInt(st.nextToken());
         int s2_count = Integer.parseInt(st.nextToken());
+        //hash 생성
         HashMap<Integer , Integer> table = new HashMap<Integer , Integer>();
         st = new StringTokenizer(br.readLine() , " ");
         for (int i = 0; i < s1_count; i++) {
