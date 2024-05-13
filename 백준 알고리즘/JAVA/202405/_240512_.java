@@ -13,6 +13,7 @@ public class Main {
         Queue<Integer> Q_table = new LinkedList<>();
         int n = Integer.parseInt(br.readLine());
         int last = 0;
+        
         for (int i = 0; i < n; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine() , " ");
             String command = st.nextToken();
