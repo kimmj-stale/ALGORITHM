@@ -38,7 +38,7 @@ import java.util.StringTokenizer;
 public class Main {
     static int[][] dp;
     //파스칼 삼각형 활용 알고리즘
-    //nCr = n - 1Cr - 1 + n - 1Cr 반복 구문
+    //nCr = (n - 1Cr - 1) + (n - 1Cr) 반복 구문
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
