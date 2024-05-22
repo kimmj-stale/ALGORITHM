@@ -1,4 +1,4 @@
-/*1 골드바흐 추측
+/*1 골드바흐 추측 예제
 import java.io.*;
 import java.util.Arrays;
 
