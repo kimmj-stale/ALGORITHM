@@ -1,4 +1,4 @@
-/*1     merge sort
+/* merge sort 1
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
