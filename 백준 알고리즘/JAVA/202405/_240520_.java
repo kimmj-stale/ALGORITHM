@@ -4,6 +4,7 @@ import java.io.*;
 public class Main {
     static int ans = 0;
     static int call;
+    
     static int recursion(String s , int l , int r) {
         ans++;
         if (l >= r) return 1;
