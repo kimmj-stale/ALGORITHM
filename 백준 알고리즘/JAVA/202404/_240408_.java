@@ -50,11 +50,13 @@ public class Main {
 
         int n = Integer.parseInt(br.readLine());
         int[][] arr = new int[n][2];
+        
         for (int i = 0; i < n; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine() , " ");
             arr[i][0] = Integer.parseInt(st.nextToken());
             arr[i][1] = Integer.parseInt(st.nextToken());
         }
+        
         Arrays.sort(arr , (e1 , e2) -> {
             if (e1[0] == e2[0]) {
                 //두 수를 비교하는 과정에서 e1[0] - e2[0]을 통해 음수인 경우 , 0인 경우 , 양수인 경우를 나누어 정렬
