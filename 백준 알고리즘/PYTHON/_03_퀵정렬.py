@@ -19,10 +19,12 @@ def quick_sort(arr , start , end):
             #right값 중 pivot값보다 작은 값이 존재하는 경우
         #이므로 정상화를 위해 left값과 right값을 바꿔주면서 pivot 기준 왼쪽을 작은 수(left) , 오른쪽을 큰 수(right)로 둔다
         #함수의 재귀적 사용을 이용해 이를 반복
+    
     if left > right:
         arr[pivot] , arr[right] = arr[right] , arr[pivot]
     else:
         arr[left] , arr[right] = arr[right] , arr[left]
+        
     #재귀함수로 반복
     quick_sort(arr , start , right - 1)
     quick_sort(arr , right + 1 , end)
