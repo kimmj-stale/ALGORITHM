@@ -12,6 +12,7 @@ public class Main {
 
     private static void sort_num(String s , int len) {
         sort = new int[11];
+        
         for (int i = 0; i < len; i++) {
             int n = s.charAt(i) - 48;
             sort[n]++;
@@ -23,6 +24,7 @@ public class Main {
 
          String num = br.readLine();
          s_num(num);
+         
          for (int i = 10; i >= 0; i--) {
              if (sort[i] != 0) {
                  for (int j = 0; j < sort[i]; j++) {
