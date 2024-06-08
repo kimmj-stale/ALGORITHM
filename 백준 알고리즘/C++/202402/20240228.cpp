@@ -33,9 +33,11 @@ int main() {
     ios_base :: sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
+    
     int n , sum = 0;
     string s;
     cin >> s >> n;
+    
     for (int i = 0; i < s.length(); i++) {
         for (int j = 'A'; j <= 'Z'; j++) {
             if (s[i] == j) {
