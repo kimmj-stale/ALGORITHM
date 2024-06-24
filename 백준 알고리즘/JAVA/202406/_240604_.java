@@ -1,4 +1,4 @@
-/*1
+/* 최소공배수 구하기
 import java.io.*;
 import java.util.StringTokenizer;
 
