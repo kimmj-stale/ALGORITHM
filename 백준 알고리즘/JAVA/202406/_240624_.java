@@ -1,4 +1,4 @@
-/*1
+/*채팅창 인사 이모티콘
 import java.io.*;
 import java.util.HashMap;
 import java.util.StringTokenizer;
