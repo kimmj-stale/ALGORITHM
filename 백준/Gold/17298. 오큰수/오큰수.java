@@ -13,40 +13,46 @@ public class Main {
         StringTokenizer st;
 
         int n = Integer.parseInt(br.readLine());
-        //오큰값을 저장할 배열
+        //전체 수들을 저장할 배열
+        int[] arr = new int[n];
+        //오큰수들을 저장할 배열
         int[] ans = new int[n];
-        //전체 수 들을 저장할 배열
-        int[] table = new int[n];
-        //인덱스 정보를 저장할 스택
+        //각 정답들의 인덱스 값을 저장할 배열
         Stack<Integer> stack = new Stack<>();
-        //table의 한 값을 지정
-            //그 값이 오큰수인 모든 값들을 저장
-            //그 수들의 위치를 pop() 을 통해 제거
-                //오큰수를 저장하지 못한 수들은 다음 오큰수를 구할 때 까지 stack에 저장되게 됨
-                //오큰수가 정해지면 stack에서 빠지고 다음 오큰수를 구해야 하는 수의 후보의 인덱스 값이 저장됨
-            //끝까지 정해지지 않았다면 해당 인덱스 위치에 -1 값을 저장시킴
-        stack.add(0);
+
         st = new StringTokenizer(br.readLine() , " ");
         for (int i = 0; i < n; i++) {
-            table[i] = Integer.parseInt(st.nextToken());
+            arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        for (int i = 0; i < n; i++) {
-            while (!stack.isEmpty() && table[stack.peek()] < table[i]) {
-                ans[stack.pop()] = table[i];
+        //핵심 로직 정리
+        //이 연산은 " 오큰값 만을 구하는 " 로직
+        //각 값을 배열을 순회하면서 오큰값을 구하면 시간 복잡도는 대략 O(n^2)가 된다.
+            //따라서 배열을 한 번만 순회하는 것이 중요
+        //오큰수의 후보가 되는 한 값을 지정 , 그 값의 비교를 진행
+            //해당 값의 오큰수는 구하지 못했으므로 해당 값의 인덱스 값을 스택에 저장
+        //해당 값을 오큰수로 가지는 수들을 모두 구한다.
+            //다른 값과 비교할 필요가 없는게 인덱스 0부터 시작하여 구하기 때문에 놓치는 경우는 일어나지 않는다.
+        //다음 오큰수 후보를 지정하면 아까의 오큰수 후보와 오큰수가 구해지지 않은 인덱스들이 스택에 저장되어 있어 오큰수를 구할 수 있다.
+        //해당 과정을 오큰수가 모두 구해지도록 반복
+
+        //초기값 설정 , 초기 오큰수 후보는 arr[0] 다음 값인 arr[1]이다.
+        stack.add(0);
+        for (int i = 1; i < n; i++) {
+            while (!stack.isEmpty() && arr[stack.peek()] < arr[i]) {
+                //정답 배열에 저장
+                ans[stack.pop()] = arr[i];
             }
-            //이 인덱스에 해당하는 값은 비교를 위해 사용되었고 오큰수를 정하지 않았으므로 다음에 구할 인덱스이다.
-            //따라서 해당 스택에 저장
+            //오큰수를 구하지 못한 오큰수 후보의 인덱스 값 저장
             stack.add(i);
         }
 
-        //위 연산이 끝나면 오큰수를 구할 수 있는 인덱스들을 모두 처리했을 것
-        //하지만 오큰수를 구할 수 없었던 인덱스 값들은 남아 있고, 이 인덱스에 해당하는 값들은 모두 -1이다.
+        //끝까지 오큰수를 구하지 못한 수들은 오큰수가 없는 값이므로 -1 저장
         while (!stack.isEmpty()) {
             ans[stack.pop()] = -1;
         }
 
-        for (int i : ans) {
+        for (Integer i : ans) {
             bw.write(i + " ");
         }
         bw.flush();
