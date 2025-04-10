@@ -2,27 +2,28 @@ import java.io.*;
 
 public class Main {
     static int n;
-    static int[] fibo;
+    static int[] table;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw =new BufferedWriter(new OutputStreamWriter(System.out));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         n = Integer.parseInt(br.readLine());
-        fibo = new int[21];
+        table = new int[21];
 
-        fibo[0] = 0;
-        fibo[1] = 1;
+        table[0] = 0;
+        table[1] = 1;
 
-        if (n >= 2) recursion(2);
+        if (n >= 2) fibo(2);
 
-        bw.write(fibo[n] + "");
+        bw.write(table[n] + "");
         bw.flush();
         br.close();
         bw.close();
     }
-    static void recursion(int idx) {
-        if (idx == n + 1) return;
-        fibo[idx] = fibo[idx - 1] + fibo[idx - 2];
-        recursion(idx + 1);
+
+    private static void fibo(int k) {
+        if (k == n + 1) return;
+        table[k] = table[k - 1] + table[k - 2];
+        fibo(k + 1);
     }
 }
